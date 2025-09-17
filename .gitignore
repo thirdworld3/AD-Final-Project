@@ -1,0 +1,30 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Environment files
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Cache
+cache/
+tmp/
+
+# Docker
+.docker/
+
+# Note: composer.lock should be committed to ensure consistent dependencies across team members
