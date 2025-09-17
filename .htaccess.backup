@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# Handle static assets first (CSS, JS, images, etc.)
+RewriteCond %{REQUEST_URI} ^/assets/
+RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+
+# Handle favicon
+RewriteRule ^favicon\.ico$ public/favicon.ico [L]
+
+# Handle common routes
+RewriteRule ^login$ public/login.php [L]
+RewriteRule ^signup$ public/signup.php [L]
+RewriteRule ^logout$ public/logout.php [L]
+RewriteRule ^products$ public/products.php [L]
+RewriteRule ^admin/(.*)$ public/admin/$1 [L]
+RewriteRule ^account/(.*)$ public/account/$1 [L]
+
+# Redirect other requests to public folder (but not if file exists in root)
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [L]
