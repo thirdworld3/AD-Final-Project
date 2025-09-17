@@ -1,0 +1,25 @@
+RewriteEngine On
+
+# Enable error pages
+ErrorDocument 404 /Activities/Com_1/public/404.php
+
+# Security headers (commented out - headers module not enabled)
+# Header always set X-Content-Type-Options nosniff
+# Header always set X-Frame-Options DENY
+# Header always set X-XSS-Protection "1; mode=block"
+
+# PHP settings
+php_flag display_errors On
+php_value error_reporting E_ALL
+
+# File access
+<Files "*.php">
+    Order allow,deny
+    Allow from all
+</Files>
+
+# Prevent access to sensitive files
+<Files "config.php">
+    Order deny,allow
+    Deny from all
+</Files>
